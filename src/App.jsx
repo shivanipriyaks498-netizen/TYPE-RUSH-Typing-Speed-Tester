@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from "react";
 import "./App.css";
+import Stats from "./components/Stats";
 
 const paragraphs = [
   "React is a popular JavaScript library used for building interactive user interfaces. It makes web development easier and faster.",
@@ -92,6 +93,7 @@ function App() {
 
   return (
     <div className="app">
+
       <header className="header">
         <h1>⚡ TYPE RUSH</h1>
         <p>Test your typing speed and accuracy</p>
@@ -99,29 +101,14 @@ function App() {
 
       <main className="container">
 
-        <div className="stats">
-
-          <div className="stat-card">
-            <h3>Time Left</h3>
-            <h2>{timeLeft}s</h2>
-          </div>
-
-          <div className="stat-card">
-            <h3>WPM</h3>
-            <h2>{wpm}</h2>
-          </div>
-
-          <div className="stat-card">
-            <h3>Accuracy</h3>
-            <h2>{accuracy}%</h2>
-          </div>
-
-          <div className="stat-card">
-            <h3>Characters</h3>
-            <h2>{typedText.length}/{paragraph.length}</h2>
-          </div>
-
-        </div>
+        {/* Statistics Component */}
+        <Stats
+          timeLeft={timeLeft}
+          wpm={wpm}
+          accuracy={accuracy}
+          typedCount={typedText.length}
+          totalCount={paragraph.length}
+        />
 
         <section className="typing-card">
 
@@ -187,6 +174,7 @@ function App() {
       <footer>
         <p>© 2026 TYPE RUSH | Built with React JS</p>
       </footer>
+
     </div>
   );
 }
